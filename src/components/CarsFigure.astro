@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import { JSDOM } from "jsdom";
+import cars from "../../cars.json" assert {type:"json"};
+const { options } = Astro.props;
+
+const plot = Plot.plot({ ...options, document: new JSDOM("").window.document });
+const optionsPlot = {
+    marks:[
+        Plot.dot(cars, {
+            x: "year",
+            y: "power (hp)",
+            stroke: "name",
+        }),
+    ],
+};
+---
+
+<Layout>
+	<div set:html={Plot.plot({ ...optionsPlot, document: new JSDOM("").window.document }).outerHTML} />
+</Layout>
