@@ -6,7 +6,24 @@ import IndustryFigure from "../components/IndustriesFigure.astro"
 ---
 
 <Layout>
-	<PlotFigure />
-	<CarsFigure />
-	<IndustryFigure />
+	<h1>Visualisation des graphiques</h1>
+	<div class="cards">
+		<PlotFigure />
+		<CarsFigure />
+		<IndustryFigure />
+	</div>
 </Layout>
+
+<style>
+	h1{
+		margin-top: 50px;
+		display: flex;
+		justify-content: center;
+	}
+	.cards{
+		display: flex;
+		justify-content: space-between;
+		padding:0 50px;
+		margin-top: 75px;
+	}
+</style>

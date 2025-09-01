@@ -23,6 +23,39 @@ const plot = Plot.plot({
     document: new JSDOM("").window.document,
 });
 ---
+<a href="/industry" class="bloc">
+    <p style="text-align:center; margin-bottom: 1rem;">Licenciements par industrie au fil du temps</p>
+    <div class="card">
+        <div set:html={plot.outerHTML} />
+    </div>
+</a>
 
+<style>
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    .bloc{
+        display: flex;
+        flex-direction: column;
+    }
+    .bloc:hover{
+        cursor: pointer;
+    }
+    p{
+        font-size: large;
+    }
 
-<div set:html={plot.outerHTML} />
+    .card{
+        width: 400px;
+        margin: 0 auto;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: #fff;
+        border-radius: 8px;
+        transition: scale 0.3s ease;
+    }
+    .card:hover{
+        scale: 1.05;
+    }
+</style>

@@ -16,10 +16,42 @@ const optionsPlot = {
     ],
 };
 ---
+<a href="/cars" class="bloc">
+    <p style="text-align:center; margin-bottom: 1rem;">Puissance des voitures par année</p>
+    <div class="card"
+        set:html={Plot.plot({
+            ...optionsPlot,
+            document: new JSDOM("").window.document,
+        }).outerHTML}
+    />
+</a>
 
-<div class="card"
-    set:html={Plot.plot({
-        ...optionsPlot,
-        document: new JSDOM("").window.document,
-    }).outerHTML}
-/>
+<style>
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    .bloc{
+        display: flex;
+        flex-direction: column;
+    }
+    .bloc:hover{
+        cursor: pointer;
+    }
+    p{
+        font-size: large;
+    }
+
+    .card{
+        width: 400px;
+        margin: 0 auto;
+        padding: 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: #fff;
+        border-radius: 8px;
+        transition: scale 0.3s ease;
+    }
+    .card:hover{
+        scale: 1.05;
+    }
+</style>
