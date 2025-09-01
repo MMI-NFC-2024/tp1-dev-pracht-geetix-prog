@@ -1,5 +1,4 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import * as Plot from "@observablehq/plot";
 import { JSDOM } from "jsdom";
 import industries from "../../industries.json" assert { type: "json" };
@@ -25,6 +24,5 @@ const plot = Plot.plot({
 });
 ---
 
-<Layout>
-    <div set:html={plot.outerHTML} />
-</Layout>
+
+<div set:html={plot.outerHTML} />
