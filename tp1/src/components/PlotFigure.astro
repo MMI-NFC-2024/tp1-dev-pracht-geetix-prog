@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import * as Plot from "@observablehq/plot";
+import { JSDOM } from "jsdom";
+import penguins from "../../penguins.json" assert {type:"json"};
+const { options } = Astro.props;
+
+const plot = Plot.plot({ ...options, document: new JSDOM("").window.document });
+const optionsPlot = {
+    marks:[
+        Plot.dot(penguins, {
+            x: "culmen_length_mm",
+            y: "culmen_depth_mm",
+            stroke: "species",
+        }),
+    ],
+};
+---
+
+<Layout>
+	<div set:html={Plot.plot({ ...optionsPlot, document: new JSDOM("").window.document }).outerHTML} />
+</Layout>
