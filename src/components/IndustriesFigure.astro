@@ -2,21 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 import * as Plot from "@observablehq/plot";
 import { JSDOM } from "jsdom";
-import industries from "../../industries.json" assert {type:"json"};
-const { options } = Astro.props;
+import industries from "../../industries.json" assert { type: "json" };
 
-const plot = Plot.plot({ ...options, document: new JSDOM("").window.document });
-const optionsPlot = {
-    marks:[
-        Plot.dot(industries, {
+const plot = Plot.plot({
+    style: "overflow: visible;",
+    y: {
+        grid: true,
+        label: "Unemployed",
+    },
+    x: {
+        label: "Date",
+    },
+    marks: [
+        Plot.ruleY([0]),
+        Plot.line(industries, {
             x: "date",
             y: "unemployed",
             stroke: "industry",
         }),
     ],
-};
+    document: new JSDOM("").window.document,
+});
 ---
 
 <Layout>
-	<div set:html={Plot.plot({ ...optionsPlot, document: new JSDOM("").window.document }).outerHTML} />
+    <div set:html={plot.outerHTML} />
 </Layout>
