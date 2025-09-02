@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Industry from "../../components/IndustriesFigure.astro"
+---
+
+<Layout>
+    <div class="bloc">
+        <Industry class="card" />
+        <p>
+            Ce graphique présente une analyse des différentes industries représentées. On observe une répartition variée des secteurs, mettant en évidence la diversité économique. Chaque industrie est illustrée par sa part relative, ce qui permet de comparer leur importance respective. Cette visualisation facilite la compréhension des tendances et des dynamiques du marché industriel.
+        </p>
+    </div>
+</Layout>
+
+<style>
+    .bloc{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 75px 100px;
+    }
+    p{
+        width: 50%;
+    }
+</style>

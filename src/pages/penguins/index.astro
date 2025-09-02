@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Penguins from "../../components/PlotFigure.astro"
+---
+
+<Layout>
+    <div class="bloc">
+        <Penguins class="card" />
+        <p>
+            Le graphique des penguins présente la répartition de différentes espèces de manchots selon plusieurs variables telles que la taille, le poids ou la longueur du bec. On observe que chaque espèce possède des caractéristiques physiques distinctes, ce qui permet de les différencier visuellement sur le graphique. Cette analyse met en évidence la diversité au sein de la population de manchots étudiée et peut aider à mieux comprendre leur adaptation à l’environnement.
+        </p>
+    </div>
+</Layout>
+
+<style>
+    .bloc{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 75px 100px;
+    }
+    p{
+        width: 50%;
+    }
+</style>

@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Cars from "../../components/CarsFigure.astro"
+---
+
+<Layout>
+    <div class="bloc">
+        <Cars class="card" />
+        <p>
+            Le graphique des voitures présente une répartition visuelle des différents modèles disponibles. Il permet d’analyser rapidement la diversité, la popularité et les caractéristiques principales des véhicules affichés. Cette représentation facilite la comparaison entre les options et aide à identifier les tendances ou préférences du marché automobile.
+        </p>
+    </div>
+</Layout>
+
+<style>
+    .bloc{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 75px 100px;
+    }
+    p{
+        width: 50%;
+    }
+</style>
